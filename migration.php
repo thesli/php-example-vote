@@ -8,7 +8,6 @@ try {
     foreach ($dropTablelist as $t) {
         $db->exec("drop table if exists $t");
     }
-
     $db->exec("create table users(id int NOT NULL,name varchar(30))");
     $db->exec("create table events(id int NOT NULL,name varchar(30))");
     $db->exec("create table options(option_id int NOT NULL,event_id int NOT NULL,name varchar(30))");

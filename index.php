@@ -1,8 +1,18 @@
 <?php
 $db = new PDO("sqlite:database.db") or die("it fails anyway.");
+// mysql: $db = new PDO('mysql:host=localhost;dbname=testdb;charset=utf8', 'username', 'password');
 
 $currentEventID = isset($_GET["eventID"]) ? $_GET["eventID"] : 0;
 $userList = $db->query("select * from users");
+
+//echo "<pre>";
+//foreach($userList as $u){
+//    print_r($u);
+//    $u['id'];
+//    $u['name'];
+//}
+//echo "</pre>";
+
 $eventList = $db->query("select * from events");
 $optionList = $db->query("select * from options where event_id = {$currentEventID}");
 $voteList = $db->query("select * from votes where event_id = {$currentEventID}");
@@ -15,9 +25,8 @@ foreach ($voteList as $v) {
     array_push($votedUserIDArray["{$v['option_id']}"], $v['user_id']);
 }
 
-
-
 ?>
+
 
 
 <!doctype html>
@@ -27,6 +36,15 @@ foreach ($voteList as $v) {
     <title>Document</title>
 </head>
 <body>
+
+<fieldset>
+    <form action="createEvent.php" method="post">
+        new Event Name: <input type="text" name="eventName"/>
+        <input type="submit"/>
+    </form>
+</fieldset>
+
+
 <form action="vote.php" method="post">
     <fieldset>
         You are now:
@@ -47,6 +65,10 @@ foreach ($voteList as $v) {
                 <?php endif; ?>
             <?php endforeach; ?>
         </select>
+
+
+
+
     </fieldset>
     <fieldset>
         Option:
@@ -89,7 +111,7 @@ foreach ($voteList as $v) {
 <script>
     var eventSelector = document.querySelector("#eventSelector");
     eventSelector.onchange = function () {
-        eventValue = eventSelector.value;
+        var eventValue = eventSelector.value;
         location.href = "index.php?eventID=" + eventValue;
     }
 </script>
