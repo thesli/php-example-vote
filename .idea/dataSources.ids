@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="SQLite - database.db" uuid="c2fd906f-2614-4626-ac55-b2ab3fa17ebf">
+    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="events" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="options" schema="" catalog="" type="TABLE">
+      <column name="option_id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="event_id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="users" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(30)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="votes" schema="" catalog="" type="TABLE">
+      <column name="user_id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="event_id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="option_id" sqlType="INT" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+    </table>
+  </data-source>
+</component>
